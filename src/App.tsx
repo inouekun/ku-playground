@@ -1,3 +1,30 @@
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { fetchWaifu } from './api/api'
+
 export function App() {
-  return <div>Hello</div>
+  const queryClient = useQueryClient()
+
+  const { isFetching, isError, data, error } = useQuery({
+    queryKey: ['waifu'],
+    queryFn: fetchWaifu,
+    refetchOnWindowFocus: false
+  })
+
+  const onRefreshHandler = () => {
+    void queryClient.invalidateQueries({ queryKey: ['waifu'] })
+  }
+
+  if (isFetching) return <div>Loading...</div>
+  if (isError) return <div>Error: {typeof error === 'string' ? error : ''}</div>
+
+  return (
+    <div className="flex flex-col">
+      <button type="button" onClick={onRefreshHandler}>
+        Refresh
+      </button>
+      <div className="flex">
+        <img src={data} alt="" className="object-contain w-60 h-60" />
+      </div>
+    </div>
+  )
 }
