@@ -1,20 +1,17 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { fetchWaifu } from './api/services/waifu'
+import { fetchWaifu } from '@/api/services/waifu'
 
 export function App() {
   const queryClient = useQueryClient()
 
   const { isFetching, isError, data, error } = useQuery({
     queryKey: ['waifu'],
-    queryFn: fetchWaifu,
-    refetchOnWindowFocus: false
+    queryFn: fetchWaifu
   })
 
   const onRefreshHandler = () => {
     void queryClient.invalidateQueries({ queryKey: ['waifu'] })
   }
-
-  // return null
 
   if (isFetching) return <div>Loading...</div>
   if (isError) return <div>Error: {typeof error === 'string' ? error : ''}</div>
