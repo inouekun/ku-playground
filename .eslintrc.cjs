@@ -29,9 +29,10 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-uses-react': 0,
-    'react/jsx-props-no-spreading': 1,
+    'react/jsx-props-no-spreading': 0,
     'react/no-unescaped-entities': 0,
     'react/jsx-one-expression-per-line': 0,
     'import/prefer-default-export': 0,
@@ -42,12 +43,15 @@ module.exports = {
         js: 'never',
         jsx: 'never',
         ts: 'never',
-        tsx: 'never'
+        tsx: 'never',
+        css: 'always'
       }
     ],
     'space-before-function-paren': 0,
     '@typescript-eslint/space-before-function-paren': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/strict-boolean-expressions': 0
+    '@typescript-eslint/strict-boolean-expressions': 0,
+    'multiline-ternary': ['error', 'never'],
+    'no-nested-ternary': 'off'
   }
 }

@@ -1,9 +1,12 @@
-<h1 align="center">Welcome to bun-vitejs-scaffold 👋</h1>
+<h1 align="center">Welcome to Ku's Playground 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Own custom boilerplate to get project started using React
+> This is my code playground to test new feature (for me) to test out.
+
+Current features:
+- @tanstack/react-query
 
 ## Install
 
